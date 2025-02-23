@@ -1,18 +1,22 @@
 body {
   background-image: url(../images/plsloadgoddamnit.jpg);
-  background-size:cover;
+  background-size: cover;
   background-position: center;
-  overflow:scroll;
+  position: cover;
+  overflow-x: hidden;
+  overflow-y: hidden;
   margin: 0;
   padding: 0;
   line-height: 0.95;
   font-family: 'Times New Roman', Times, serif;
   user-select: none;
-  animation: bgFadeIn 3s ease-in forwards;
+  animation: funnyFadeIn 3s ease-in forwards;
 }
+
 div {
   text-align: center;
 }
+
 i.icon.fa-solid.fa-circle-arrow-right.fa-fade.colo {
   font-size: 40px;
   padding: 10px;
@@ -20,18 +24,21 @@ i.icon.fa-solid.fa-circle-arrow-right.fa-fade.colo {
   color: #ec933f;
   text-align: center;
 }
+
 html {
   line-height: 0.7;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
 
-@keyframes bgFadeIn {
+@keyframes funnyFadeIn {
   0% {
-    filter: brightness(0%) blur(10px);
+    backdrop-filter: contrast(170%) brightness(0%);
+    filter: brightness(0%) blur(17px);
   }
   100% {
-    filter: brightness(100%) blur(0);
+    backdrop-filter: contrast(100%) brightness(100%);
+    filter: brightness(100%) blur(0px);
   }
 }
 
