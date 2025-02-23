@@ -4,7 +4,7 @@ body {
   background-position: center;
   position: cover;
   overflow-x: hidden;
-  overflow-y: hidden;
+  overflow-y: auto;
   margin: 0;
   padding: 0;
   line-height: 0.95;
