@@ -1,50 +1,3 @@
-@keyframes lights {
-    0% {
-      color: hsl(230, 40%, 80%);
-      text-shadow:
-        0 0 1em hsla(320, 100%, 50%, 0.2),
-        0 0 0.125em hsla(320, 100%, 60%, 0.3),
-        -1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
-        1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
-    }
-    
-    30% { 
-      color: hsl(230, 80%, 90%);
-      text-shadow:
-        0 0 1em hsla(320, 100%, 50%, 0.5),
-        0 0 0.125em hsla(320, 100%, 60%, 0.5),
-        -0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
-        0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
-    }
-    
-    40% { 
-      color: hsl(230, 100%, 95%);
-      text-shadow:
-        0 0 1em hsla(320, 100%, 50%, 0.5),
-        0 0 0.125em hsla(320, 100%, 90%, 0.5),
-        -0.25em -0.125em 0.125em hsla(40, 100%, 60%, 0.2),
-        0.25em 0.125em 0.125em hsla(200, 100%, 60%, 0.4);
-    }
-    
-    70% {
-      color: hsl(230, 80%, 90%);
-      text-shadow:
-        0 0 1em hsla(320, 100%, 50%, 0.5),
-        0 0 0.125em hsla(320, 100%, 60%, 0.5),
-        0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
-        -0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
-    }
-    
-    100% {
-      color: hsl(230, 40%, 80%);
-      text-shadow:
-        0 0 1em hsla(320, 100%, 50%, 0.2),
-        0 0 0.125em hsla(320, 100%, 60%, 0.3),
-        1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
-        -1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
-    }
-    
-  }
 body {
   background-image: url(../images/plsloadgoddamnit.jpg);
   background-size:cover;
@@ -55,6 +8,7 @@ body {
   line-height: 0.95;
   font-family: 'Times New Roman', Times, serif;
   user-select: none;
+  animation: bgFadeIn 3s ease-in forwards;
 }
 div {
   text-align: center;
@@ -71,6 +25,16 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
+
+@keyframes bgFadeIn {
+  0% {
+    filter: brightness(0%) blur(10px);
+  }
+  100% {
+    filter: brightness(100%) blur(0);
+  }
+}
+
 @media only screen and (min-width: 550px)
   {
     
@@ -78,6 +42,7 @@ html {
   
 
 h1 {
+    color: #ec933f;
     padding-top: 45vb;
     font-family: Dancing Script, cursive;
     font-optical-sizing: auto;
@@ -88,6 +53,7 @@ h1 {
     /*animation: lights 5s 750ms linear infinite;*/
 }
 h2 {
+    color: #ec933f;
     font-family: Montserrat, sans-serif;
     font-optical-sizing: auto;
     font-weight: 500;
@@ -103,4 +69,52 @@ h3 {
     font-style: normal;
     text-align: end;
     /*animation: lights 5s 750ms linear infinite;*/
+}
+
+@keyframes lights {
+  0% {
+    color: hsl(230, 40%, 80%);
+    text-shadow:
+      0 0 1em hsla(320, 100%, 50%, 0.2),
+      0 0 0.125em hsla(320, 100%, 60%, 0.3),
+      -1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+      1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+  }
+  
+  30% { 
+    color: hsl(230, 80%, 90%);
+    text-shadow:
+      0 0 1em hsla(320, 100%, 50%, 0.5),
+      0 0 0.125em hsla(320, 100%, 60%, 0.5),
+      -0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+      0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+  }
+  
+  40% { 
+    color: hsl(230, 100%, 95%);
+    text-shadow:
+      0 0 1em hsla(320, 100%, 50%, 0.5),
+      0 0 0.125em hsla(320, 100%, 90%, 0.5),
+      -0.25em -0.125em 0.125em hsla(40, 100%, 60%, 0.2),
+      0.25em 0.125em 0.125em hsla(200, 100%, 60%, 0.4);
+  }
+  
+  70% {
+    color: hsl(230, 80%, 90%);
+    text-shadow:
+      0 0 1em hsla(320, 100%, 50%, 0.5),
+      0 0 0.125em hsla(320, 100%, 60%, 0.5),
+      0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+      -0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+  }
+  
+  100% {
+    color: hsl(230, 40%, 80%);
+    text-shadow:
+      0 0 1em hsla(320, 100%, 50%, 0.2),
+      0 0 0.125em hsla(320, 100%, 60%, 0.3),
+      1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+      -1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+  }
+  
 }
