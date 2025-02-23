@@ -2,7 +2,8 @@ body {
   background-image: url(../images/plsloadgoddamnit.jpg);
   background-size: cover;
   background-position: center;
-  position: cover;
+  background-clip: border-box;
+  position: relative;
   overflow-x: hidden;
   overflow-y: auto;
   margin: 0;
