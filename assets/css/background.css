@@ -5,7 +5,7 @@ body {
   background-clip: border-box;
   position: relative;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: hidden;
   margin: 0;
   padding: 0;
   line-height: 0.95;
