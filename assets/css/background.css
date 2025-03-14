@@ -20,6 +20,7 @@ div {
 
 i.icon.fa-solid.fa-circle-arrow-right.fa-fade.colo {
   font-size: 40px;
+  margin-top: 2vb;
   padding: 10px;
   border-radius: 50%;
   color: #ec933f;
@@ -50,8 +51,9 @@ html {
   
 
 h1 {
+    margin: 0;
     color: #ec933f;
-    padding-top: 45vb;
+    padding-top: 55vb;
     font-family: Dancing Script, cursive;
     font-optical-sizing: auto;
     font-size: 10vb;
