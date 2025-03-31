@@ -11,11 +11,25 @@ h1 {
 
 }
 h2 {
-    margin: 0;
+    padding: 3%;
+    font-size: 29px;
+    font-family: "Lexend", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 47px;
     vertical-align: middle;
+    margin: 0;
     color: #1c4587;
 }
 h3 {
+    padding: 3%;
+    font-size: 15px;
+    font-family: "Lexend", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    line-height: 30px;
     margin: 0;
     color: #1c4587;
 }
@@ -31,13 +45,13 @@ h3 {
 }
 .sub-caption {
     display: flex;
-    gap: 10vh;
-    padding: 7%;
+    gap: 3vh;
+    padding: 3.5%;
     flex-direction: row;
     background-color: white;
 }
 .about {
-    padding: 7%;
+    padding: 3.5%;
     background-image: url(../../images/plsloadgoddamnit.jpg);
     background-size: cover;
     background-position: end;
