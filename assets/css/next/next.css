@@ -1,24 +1,47 @@
 html {
-    
+    overflow-wrap: break-word;
 }
 body {
-
+    margin: 0;
+    text-align: left;
+    width: 100%;
 }
 h1 {
 
 }
 h2 {
-
+    margin: 0;
+    vertical-align: middle;
+    color: #1c4587;
 }
 h3 {
-
+    margin: 0;
 }
-main-caption {
-
+.main-caption {
+    background-image: url(../../images/plsloadgoddamnit.jpg);
+    background-size: cover;
+    background-position: center;
+    background-clip: border-box;
+    height: 100vh;
+    width: 100%;
 }
-sub-caption {
-
+.sub-caption {
+    display: flex;
+    gap: 10vh;
+    padding: 7%;
+    flex-direction: row;
+    background-color: white;
 }
-about {
+.about {
+    padding: 7%;
+    background-image: url(../../images/plsloadgoddamnit.jpg);
+    background-size: cover;
+    background-position: end;
+    background-clip: border-box;
+}
 
+@media (max-width: 480px) {
+    .sub-caption {
+        flex-direction: column;
+    }
 }
