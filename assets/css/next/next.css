@@ -5,6 +5,7 @@ body {
     margin: 0;
     text-align: left;
     width: 100%;
+    background-color: #1c4587;
 }
 h1 {
 
@@ -16,12 +17,15 @@ h2 {
 }
 h3 {
     margin: 0;
+    color: #1c4587;
 }
 .main-caption {
     background-image: url(../../images/plsloadgoddamnit.jpg);
     background-size: cover;
     background-position: center;
     background-clip: border-box;
+    background-repeat: no-repeat;
+    background-attachment: center;
     height: 100vh;
     width: 100%;
 }
