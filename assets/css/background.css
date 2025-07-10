@@ -84,7 +84,7 @@ h3 {
     /*animation: lights 5s 750ms linear infinite;*/
 }
 skillsets {
-    margin-bottom: '17%';
+    padding-bottom: '17%';
 }
 @keyframes lights {
   0% {
