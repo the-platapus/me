@@ -10,7 +10,7 @@ body {
   overflow-x: hidden;
   overflow-y: visible;
   margin: 0;
-  padding-bottom: '17%';
+  padding: 0;
   line-height: 0.95;
   font-family: 'Times New Roman', Times, serif;
   user-select: none;
