@@ -1,11 +1,10 @@
-html {
-  background-color:#1c4587;
-}
-body {
+html, body {
+  height: 100%;
+  background-color:#2b3a4f;
   background-image: url(../images/plsloadgoddamnit.jpg);
   background-size: cover;
   background-position: center;
-  /*background-clip: border-box;*/
+  background-clip: border-box;
   position: relative;
   overflow-x: hidden;
   overflow-y: visible;
