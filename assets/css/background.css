@@ -21,14 +21,29 @@ div {
 }
 
 i.icon.fa-solid.fa-circle-arrow-right.colo {
-  font-size: 40px;
+  font-size: 30px;
   margin-top: 2vb;
-  padding: 10px;
+  padding: 7px;
   border-radius: 50%;
   color: #ec933f;
   text-align: center;
 }
-
+i.icon.fa-brands.fa-github {
+  font-size: 30px;
+  margin-top: 2vb;
+  padding: 7px;
+  border-radius: 50%;
+  color: #ec933f;
+  text-align: center;
+}
+i.icon.fa-solid.fa-envelope {
+  font-size: 30px;
+  margin-top: 2vb;
+  padding: 7px;
+  border-radius: 50%;
+  color: #ec933f;
+  text-align: center;
+}
 html {
   line-height: 0.7;
   -ms-text-size-adjust: 100%;
