@@ -1,7 +1,7 @@
 html, body {
   height: 100%;
+  background: url("../images/plsloadgoddamnitsmol.webp") center/cover no-repeat;
   background-color:#2b3a4f;
-  background-image: url(../images/plsloadgoddamnit.jpg);
   background-size: cover;
   background-position: center;
   background-clip: border-box;
@@ -11,9 +11,14 @@ html, body {
   margin: 0;
   padding: 0;
   line-height: 0.95;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Dancing Script", "Brush Script MT", "Comic Sans MS", cursive;
   user-select: none;
+  transition: background-image 0.6s ease-in-out;
   /* animation: funnyFadeIn 3s ease-in forwards; */
+}
+
+body.loaded {
+  background-image: url("../images/plsloadgoddamnit.jpg");
 }
 
 div {
@@ -44,6 +49,7 @@ i.icon.fa-solid.fa-envelope {
   color: #ec933f;
   text-align: center;
 }
+
 html {
   line-height: 0.7;
   -ms-text-size-adjust: 100%;
