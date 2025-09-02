@@ -21,14 +21,8 @@
         <i class="icon fa-solid fa-circle-arrow-right fa-fade colo"></i>
     </a>
     </div>
-    <div class="skillsets">
-        <h2>Network Dev - IoT Dev - Android Dev</h2>
-        <h2>PC Hardware Enthusiast - ICE Hobbiest</h2>
-        <h2>3D Dev - Professional Photographer</h2>
-        <!-- <h2>Owner and co-founder of Shiza</h2> -->
-        <!-- <h3>Some ending text</h3> -->
-    </div>
-    
+    <p class="tagline"><span id="typing"></span><span class="cursor"></span></p>
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JS8V71VTCQ"></script>
     <script>
@@ -38,7 +32,41 @@
         
         gtag('config', 'G-JS8V71VTCQ');
     </script>
+    
+    <script>
+    const skills = [
+      "Android, iOS and Symbian Dev",
+      "PC Hardware Enthusiast - ICE Hobbiest",
+      "3D Dev - Professional Photographer/Videographer"
+    ];
 
+    let skillIndex = 0;
+    let charIndex = 0;
+    const typingElement = document.getElementById("typing");
+
+    function typeEffect() {
+      if (charIndex < skills[skillIndex].length) {
+        typingElement.textContent += skills[skillIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(typeEffect, 75);
+      } else {
+        setTimeout(eraseEffect, 1500);
+      }
+    }
+
+    function eraseEffect() {
+      if (charIndex > 0) {
+        typingElement.textContent = skills[skillIndex].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(eraseEffect, 27);
+      } else {
+        skillIndex = (skillIndex + 1) % skills.length;
+        setTimeout(typeEffect, 300);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", typeEffect);
+  </script>
 </body>
 
 <!-- Quantity should be the same in Sass-->
@@ -50,56 +78,4 @@
 <div class="firefly"></div>
 <div class="firefly"></div>
 
-<div class="stars">
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-  </div>
 </html>

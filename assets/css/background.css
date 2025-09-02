@@ -13,7 +13,7 @@ html, body {
   line-height: 0.95;
   font-family: 'Times New Roman', Times, serif;
   user-select: none;
-  animation: funnyFadeIn 3s ease-in forwards;
+  /* animation: funnyFadeIn 3s ease-in forwards; */
 }
 
 div {
@@ -51,7 +51,10 @@ html {
     
   }
   
+.header-icons {
+     animation: fadeDown 2.0s ease forwards;
 
+}
 h1 {
     margin: 0;
     color: #ec933f;
@@ -63,6 +66,7 @@ h1 {
     font-style: normal;
     text-align: center;
     /*animation: lights 5s 750ms linear infinite;*/
+    animation: fadeDown 2.7s ease forwards;
 }
 h2 {
     color: #ec933f;
@@ -82,9 +86,43 @@ h3 {
     text-align: end;
     /*animation: lights 5s 750ms linear infinite;*/
 }
-skillsets {
+.skillsets {
     padding-bottom: '17%';
 }
+    .tagline {
+      margin: 1rem 0;
+      min-height: 2rem; /* keeps space stable */
+      letter-spacing: 1px;
+      color: #ec933f;
+      font-family: Montserrat, sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 500;
+      font-style: normal;
+      font-size: 2.7vb;
+      text-align: center;
+      animation: fadeUp 3.4s ease forwards;
+
+    }
+
+    cursor {
+      display: inline-block;
+      width: 3px;
+      background: #ec933f;
+      margin-left: 2px;
+      animation: blink 0.7s steps(1) infinite;
+    }
+
+    @keyframes blink {
+      50% { background: transparent; }
+    }
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 @keyframes lights {
   0% {
     color: hsl(230, 40%, 80%);
