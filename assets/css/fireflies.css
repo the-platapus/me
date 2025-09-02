@@ -1305,8 +1305,8 @@
       transform: rotate(360deg);
     }
   }
-  @keyframes flash {
-    0%, 30%, 100% {
+@keyframes flash {
+    0%, 60%, 100% {
       opacity: 0;
       box-shadow: 0 0 0vw 0vw #ec933f;
     }
