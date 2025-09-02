@@ -20,7 +20,7 @@ div {
   text-align: center;
 }
 
-i.icon.fa-solid.fa-circle-arrow-right.fa-fade.colo {
+i.icon.fa-solid.fa-circle-arrow-right.colo {
   font-size: 40px;
   margin-top: 2vb;
   padding: 10px;
@@ -101,19 +101,23 @@ h3 {
       font-size: 2.7vb;
       text-align: center;
       animation: fadeUp 3.4s ease forwards;
-
+      padding-left: 3vb;
+      padding-right: 3vb;
     }
 
-    cursor {
+    .cursor {
       display: inline-block;
-      width: 3px;
+      width: 2vb;
+      height: 2.8vb;
       background: #ec933f;
       margin-left: 2px;
-      animation: blink 0.7s steps(1) infinite;
+      animation: blink 2s ease infinite;
     }
 
     @keyframes blink {
-      50% { background: transparent; }
+      0% { opacity: 0 }
+      50% { opacity: 1 }
+      100% { opacity: 0 }
     }
     @keyframes fadeDown {
       from { opacity: 0; transform: translateY(-50px); }
