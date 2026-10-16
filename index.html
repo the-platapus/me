@@ -1,96 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Abdullah Aamir</title>
-    <link rel="stylesheet" href="assets/css/background.css">
-    <!--link rel="stylesheet" href="assets/css/stars.css"-->
-    <link rel="stylesheet" href="assets/css/fireflies.css">
-    <!-- Import Icons -->
-    <script src="https://kit.fontawesome.com/4b0d33198f.js" crossorigin="anonymous"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>the-platapus</title>
+  <meta name="description" content="Personal Portfolio">
+  <meta name="theme-color" content="#2b3a4f">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="icon" href="favicon.ico">
+
+  <link rel="preload" href="assets/images/background-preview.webp" as="image" type="image/webp">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Lexend:wght@100..900&family=Montserrat:wght@100..900&display=swap">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
+
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/background.css">
+  <link rel="stylesheet" href="assets/css/hero.css">
+  <link rel="stylesheet" href="assets/css/about.css">
+  <link rel="stylesheet" href="assets/css/projects.css">
+
+  <script type="module" src="assets/js/main.js"></script>
+  <script defer src="oneko/oneko.js" data-cat="oneko/oneko.gif"></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JS8V71VTCQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JS8V71VTCQ');
+  </script>
 </head>
 <body>
-    <h1>Abdullah Aamir</h1>
-    <div class="header-icons">
-        <a aria-label="My Github Profile" target="_self" href="https://github.com/the-platapus">
-            <i class="icon fa-brands fa-github" aria-hidden="true"></i>
+  <div class="loader" aria-hidden="true"></div>
+
+  <!-- Fixed scenery behind the page; fireflies are added by fireflies.js -->
+  <div class="backdrop" aria-hidden="true">
+    <div class="backdrop__image"></div>
+  </div>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <main class="page no-scrollbar">
+    <section id="home" class="hero" hidden>
+      <h1 class="hero__name">Abdullah Aamir</h1>
+      <div class="hero__links">
+        <a class="hero__link" href="https://github.com/the-platapus" aria-label="My GitHub profile">
+          <i class="fa-brands fa-github" aria-hidden="true"></i>
         </a>
-        <a aria-label="Send Email" href="mailto:abu378072@gmail.com" target="_blank">
-            <i class="icon fa-solid fa-envelope" aria-hidden="true"></i>
+        <a class="hero__link" href="mailto:abu378072@gmail.com" aria-label="Send email" data-email-link>
+          <i class="fa-solid fa-envelope" aria-hidden="true"></i>
         </a>
-        <a aria-label="Next Page" target="_self" href="https://sites.google.com/view/abdullah1325/who-is-the_platapus">
-            <i class="icon fa-solid fa-circle-arrow-right colo"></i>
-        </a>
-    </div>
-    <p class="tagline"><span id="typing"></span><span class="cursor"></span></p>
+        <button class="hero__link icon-button" type="button" aria-label="Next page" data-reveal="about">
+          <i class="fa-solid fa-circle-arrow-right" aria-hidden="true"></i>
+        </button>
+      </div>
+      <p class="hero__tagline">
+        <span data-typewriter></span><span class="hero__cursor" aria-hidden="true"></span>
+      </p>
+    </section>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JS8V71VTCQ"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        
-        gtag('config', 'G-JS8V71VTCQ');
-    </script>
-    
-    <script>
-    const skills = [
-      "Just another Backend Engineer...",
-      "Sometimes a Frontend Dev too :D",
-      "I also love building IoT solutions",
-      "Also a 3D Artist / Designer",
-      "...and a Photographer / Videographer",
-    ];
+    <section id="about" class="about" hidden>
+      <div class="about__intro">
+        <p class="about__intro-line">Hi, I'm Abdullah Aamir.</p>
+        <p class="about__intro-line about__intro-line--bold">I'm into anything that interests me.</p>
+      </div>
 
-    let skillIndex = 0;
-    let charIndex = 0;
-    const typingElement = document.getElementById("typing");
+      <div class="about__highlights">
+        <figure class="quote">
+          <blockquote class="quote__text">
+            "Those who look for seashells will find seashells; those who open them will find pearls."
+          </blockquote>
+          <figcaption class="quote__author">-Al-Ghazali</figcaption>
+        </figure>
+        <div class="aim">
+          <h2 class="aim__title">I aim</h2>
+          <p class="aim__text">
+            to blur the lines between humans and tech. I believe with good skills
+            and practice; we can make great use of technology and fill the voids
+            in our daily life. My goal is to find those voids and fulfill them
+            where and when needed.
+          </p>
+        </div>
+      </div>
 
-    function typeEffect() {
-      if (charIndex < skills[skillIndex].length) {
-        typingElement.textContent += skills[skillIndex].charAt(charIndex);
-        charIndex++;
-        setTimeout(typeEffect, 75);
-      } else {
-        setTimeout(eraseEffect, 1500);
-      }
-    }
+      <div class="bio">
+        <div class="bio__header">
+          <h2 class="bio__title">About me.</h2>
+          <button class="bio__next icon-button" type="button" aria-label="View projects" title="View Projects" data-reveal="projects">
+            <i class="fa-solid fa-circle-arrow-right" aria-hidden="true"></i>
+          </button>
+        </div>
+        <p class="bio__text">
+          Currently completing my Bachelor's Degree in Defence Forensics and Cybersecurity, I aim to gather the most experience along the way of my learning path with noticeable grades so I can obtain my spot in the companies that are well known around the world.<br>
+          As of this generation, the worth and value of a person is dependent on the skillsets they possess and how keen they are at executing it.
+        </p>
+      </div>
+    </section>
 
-    function eraseEffect() {
-      if (charIndex > 0) {
-        typingElement.textContent = skills[skillIndex].substring(0, charIndex - 1);
-        charIndex--;
-        setTimeout(eraseEffect, 27);
-      } else {
-        skillIndex = (skillIndex + 1) % skills.length;
-        setTimeout(typeEffect, 300);
-      }
-    }
+    <!-- Slides, dots and text are rendered from assets/js/data/projects.js -->
+    <section id="projects" class="projects" aria-label="Projects" hidden>
+      <div class="projects__info">
+        <div class="projects__info-content">
+          <div class="projects__heading-frame">
+            <div class="projects__heading">
+              <h2 class="projects__title"></h2>
+              <p class="projects__subtitle"></p>
+              <div class="projects__photo-dots-row">
+                <div class="projects__photo-dots" role="group" aria-label="Project photos"></div>
+              </div>
+            </div>
+          </div>
+          <div class="projects__description">
+            <p class="projects__description-ghost" aria-hidden="true"></p>
+            <p class="projects__description-text">
+              <span data-typewriter></span><span class="projects__cursor" aria-hidden="true"></span>
+            </p>
+          </div>
+        </div>
+      </div>
 
-    document.addEventListener("DOMContentLoaded", typeEffect);
-  </script>
-    <script>
-    window.addEventListener("load", function() {
-      document.body.className += " loaded";
-    });
-  </script>
-  <script src="./oneko/oneko.js" data-cat="./oneko/oneko.gif"></script>
+      <div class="projects__gallery">
+        <div class="projects__card">
+          <div class="projects__scroller no-scrollbar"></div>
+        </div>
+      </div>
+
+      <nav class="projects__nav" aria-label="Project navigation">
+        <div class="projects__nav-pill">
+          <span class="projects__category"></span>
+        </div>
+      </nav>
+    </section>
+  </main>
 </body>
-
-<!-- Quantity should be the same in Sass-->
-<div class="firefly"></div>
-<div class="firefly"></div>
-<div class="firefly"></div>
-<div class="firefly"></div>
-<div class="firefly"></div>
-<div class="firefly"></div>
-<div class="firefly"></div>
-
 </html>

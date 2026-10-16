@@ -1,0 +1,98 @@
+/* Design tokens, document defaults and utilities shared by every section. */
+
+:root {
+  --color-night: #2b3a4f;
+  --color-accent: #ec933f;
+  --color-accent-soft: #d8933f;
+  --color-amber: #fbbf24;
+  --color-mist: #cbd5e1;
+
+  --font-script: "Dancing Script", "Brush Script MT", "Comic Sans MS", cursive;
+  --font-display: "Montserrat", sans-serif;
+  --font-body: "Lexend", sans-serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  background-color: var(--color-night);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+html,
+body {
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  line-height: 0.95;
+  font-family: var(--font-script);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  user-select: none;
+  cursor: url("../../oneko/treat.png") 6 16, auto;
+}
+
+a,
+button {
+  cursor: url("../../oneko/treat.png") 6 16, pointer;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Strips native button chrome so icon buttons look like the links beside them. */
+.icon-button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+}
+
+/* Set on a [data-reveal] trigger while its section is being revealed. */
+.is-loading {
+  animation: loading-flash 0.35s ease-in-out infinite;
+  pointer-events: none;
+  cursor: default;
+}
+
+@keyframes loading-flash {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+
+  50% {
+    filter: brightness(0.25);
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}

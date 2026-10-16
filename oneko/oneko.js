@@ -9,8 +9,8 @@
 
   const nekoEl = document.createElement("div");
 
-  let nekoPosX = 100;
-  let nekoPosY = 100;
+  let nekoPosX = 32;
+  let nekoPosY = 32;
 
   let mousePosX = 0;
   let mousePosY = 0;
@@ -20,7 +20,7 @@
   let idleAnimation = null;
   let idleAnimationFrame = 0;
 
-  const nekoSpeed = 8;
+  const nekoSpeed = 10;
   const spriteSets = {
     idle: [[-3, -3]],
     alert: [[-7, -3]],
@@ -96,10 +96,10 @@
     nekoEl.style.top = `${nekoPosY - 16}px`;
     nekoEl.style.zIndex = 2147483647;
 
-    let nekoFile = "./oneko.gif"
-    const curScript = document.currentScript
+    let nekoFile = "/oneko/oneko.gif";
+    const curScript = document.currentScript;
     if (curScript && curScript.dataset.cat) {
-      nekoFile = curScript.dataset.cat
+      nekoFile = curScript.dataset.cat;
     }
     nekoEl.style.backgroundImage = `url(${nekoFile})`;
 

@@ -1,0 +1,399 @@
+/* Projects showcase: project text on the left, snap-scrolling gallery on the right, nav pill on the far right. */
+
+.projects {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  overscroll-behavior: none;
+  scroll-snap-align: start;
+  color: white;
+  font-family: var(--font-body);
+}
+
+/* ---- Text column ---- */
+
+.projects__info {
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 50%;
+  height: 100%;
+  padding: 1rem 2rem 0.5rem;
+  text-align: left;
+}
+
+.projects__info-content {
+  position: relative;
+  width: 100%;
+  max-width: 42vw;
+  transform: translateY(-8vh);
+}
+
+/* Frame height follows the heading via syncHeight() so wrapping titles resize smoothly. */
+.projects__heading-frame {
+  transition: height 0.85s var(--ease-out-expo);
+}
+
+/* Settled state: slow, delayed blur-in once scrolling stops. */
+.projects__heading {
+  opacity: 1;
+  filter: blur(0);
+  transition:
+    opacity 0.95s var(--ease-out-expo) 0.25s,
+    filter 0.95s var(--ease-out-expo) 0.25s;
+  will-change: opacity, filter;
+}
+
+/* Leaving state: instant blur-out while the gallery is between slides. */
+.projects__heading.is-leaving {
+  opacity: 0;
+  filter: blur(18px);
+  transition: opacity 0.2s ease-out, filter 0.2s ease-out;
+}
+
+.projects__title {
+  margin: 0 0 0.5rem;
+  font-size: clamp(2.25rem, 3.8vw, 4rem);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.8));
+}
+
+.projects__subtitle {
+  margin: 0 0 1rem;
+  color: var(--color-amber);
+  font-size: clamp(1.1rem, 1.4vw, 1.75rem);
+  font-weight: 400;
+  letter-spacing: 0.025em;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.8));
+}
+
+.projects__photo-dots-row {
+  display: flex;
+  padding-top: 1rem;
+}
+
+.projects__photo-dots {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 0.875rem;
+  border-radius: 9999px;
+  background-color: rgba(15, 23, 42, 0.6);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Container height follows the hidden "ghost" copy of the full description via syncHeight(). */
+.projects__description {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-width: 90%;
+  margin-top: 1.5rem;
+  transition: height 0.85s var(--ease-out-expo);
+}
+
+.projects__description-ghost,
+.projects__description-text {
+  margin: 0;
+  color: var(--color-mist);
+  font-size: clamp(0.95rem, 1vw, 1.25rem);
+  font-weight: 300;
+  line-height: 1.625;
+}
+
+.projects__description-ghost {
+  visibility: hidden;
+}
+
+.projects__description-text {
+  position: absolute;
+  inset: 0 0 auto;
+}
+
+.projects__cursor {
+  display: inline-block;
+  width: clamp(0.4rem, 0.6vw, 0.8rem);
+  height: clamp(0.8rem, 1.3vw, 1.5rem);
+  margin-left: 4px;
+  vertical-align: middle;
+  background: var(--color-mist);
+  animation: blink 1s ease infinite;
+}
+
+/* ---- Gallery ---- */
+
+.projects__gallery {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+  margin: 25px;
+}
+
+.projects__card {
+  position: relative;
+  width: 95%;
+  max-width: 660px;
+  height: 64vh;
+  margin-right: 4rem;
+  overflow: hidden;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.7);
+  transition: box-shadow 0.5s;
+}
+
+.projects__card:hover {
+  box-shadow: 0 25px 80px rgba(236, 147, 63, 0.15);
+}
+
+.projects__scroller {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+.slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+
+/* --progress: 0 when the slide is centred in the card, 1 when scrolled a full slide away. */
+.slide__frame {
+  --progress: 1;
+
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transform: scale(calc(1 - 0.15 * var(--progress)));
+  will-change: transform;
+}
+
+.slide__ambient {
+  position: absolute;
+  inset: -5%;
+  background-position: center;
+  background-size: cover;
+  filter: blur(35px) brightness(0.35) saturate(1.4);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
+}
+
+.slide__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.6)) brightness(0.75);
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 6s ease-out;
+}
+
+.slide__photo.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.slide__shade {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  background-color: black;
+  opacity: calc(0.75 * var(--progress));
+  pointer-events: none;
+}
+
+/* ---- Nav pill ---- */
+
+.projects__nav {
+  position: absolute;
+  top: 50%;
+  right: 1.5rem;
+  z-index: 30;
+  transform: translateY(-50%);
+}
+
+.projects__nav-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem 0.75rem;
+  border-radius: 9999px;
+  background-color: rgba(2, 6, 23, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.projects__category {
+  margin-top: 0.5rem;
+  color: var(--color-amber);
+  font-size: clamp(0.85rem, 1.5vw, 1.5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.25rem;
+  text-transform: uppercase;
+  text-orientation: upright;
+  writing-mode: vertical-rl;
+}
+
+/* ---- Dots (photo carousel + project nav) ---- */
+
+.dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  transition: all 0.3s var(--ease-out-expo);
+}
+
+.dot:hover {
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(1.2);
+}
+
+.dot.is-active {
+  width: 24px;
+  border-radius: 12px;
+  background: var(--color-accent);
+  box-shadow: 0 0 10px rgba(236, 147, 63, 0.5);
+  transform: scale(1);
+}
+
+.dot--vertical.is-active {
+  width: 8px;
+  height: 24px;
+}
+
+/* ---- Responsive ---- */
+
+@media (min-width: 640px) {
+  .projects__info {
+    padding-inline: 3rem;
+  }
+
+  .projects__card {
+    height: 68vh;
+    margin-right: 5rem;
+  }
+
+  .projects__nav-pill {
+    padding-inline: 0.875rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .projects__info {
+    padding-inline: 4rem;
+  }
+
+  .projects__card {
+    margin-right: 6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .projects__info {
+    padding-inline: 6rem;
+  }
+}
+
+/* Stacked layout: text on top, gallery below. */
+@media (max-width: 900px) {
+  .projects {
+    flex-direction: column;
+    padding: 1rem 0;
+  }
+
+  .projects__info {
+    box-sizing: border-box;
+    flex: 0 0 auto;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    padding: 2rem 1.5rem 0.5rem;
+  }
+
+  .projects__info-content {
+    max-width: 500px;
+    margin: 0 auto;
+    transform: none;
+  }
+
+  .projects__title {
+    margin-bottom: 0.75rem;
+    font-size: clamp(1.25rem, 7vw, 2.75rem);
+  }
+
+  .projects__subtitle {
+    font-size: clamp(0.8rem, 4vw, 1.25rem);
+  }
+
+  .projects__description {
+    position: relative;
+    top: auto;
+    min-height: 4.5rem;
+    margin-top: 1rem;
+  }
+
+  .projects__description-ghost,
+  .projects__description-text {
+    font-size: clamp(0.75rem, 3.5vw, 1.1rem);
+  }
+
+  .projects__cursor {
+    width: 0.5rem;
+    height: 1.1rem;
+  }
+
+  .projects__gallery {
+    flex: 1;
+    width: 100%;
+    margin: 0;
+    padding: 0.5rem 0 1rem;
+    overflow: hidden;
+  }
+
+  .projects__card {
+    width: 82%;
+    max-width: 540px;
+    height: 100%;
+    max-height: 54vh;
+    margin: 0 auto;
+  }
+
+  .projects__category {
+    margin-top: 0.35rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.15rem;
+  }
+
+  .projects__nav {
+    right: 0.5rem;
+  }
+}

@@ -1,0 +1,148 @@
+/* "More info" section: intro caption, quote + aim panel, and bio. */
+
+.about {
+  width: 100%;
+  overflow-wrap: break-word;
+  scroll-snap-align: start;
+  font-family: var(--font-body);
+}
+
+/* Intro caption */
+
+.about__intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100dvh;
+  text-align: center;
+}
+
+.about__intro-line {
+  margin: 0;
+  padding: 0 2rem;
+  color: var(--color-accent-soft);
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 200;
+  line-height: 27px;
+}
+
+.about__intro-line--bold {
+  font-weight: 600;
+}
+
+/* Quote + aim panel */
+
+.about__highlights {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 3rem;
+  padding: 4rem 13%;
+  background-color: rgba(0, 0, 0, 0.609);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: white;
+}
+
+@media (min-width: 800px) {
+  .about__highlights {
+    flex-direction: row;
+    gap: 5rem;
+  }
+}
+
+.quote {
+  display: flex;
+  flex: 35;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+}
+
+.quote__text {
+  margin: 0 0 1rem;
+  font-size: 29px;
+  font-weight: 400;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.quote__author {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.aim {
+  display: flex;
+  flex: 65;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.aim__title {
+  margin: 0 0 1rem;
+  font-size: 69px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.aim__text {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+/* Bio */
+
+.bio {
+  padding: 1rem 13%;
+  color: var(--color-accent);
+  text-align: left;
+}
+
+.bio__header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 3% 3% 1rem;
+}
+
+.bio__title {
+  margin: 0;
+  font-size: 37px;
+  font-weight: 400;
+  line-height: 47px;
+}
+
+.bio__next {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.875rem;
+  transition: color 0.3s;
+}
+
+.bio__next:hover {
+  color: white;
+}
+
+@media (min-width: 640px) {
+  .bio__next {
+    font-size: 2.25rem;
+  }
+}
+
+.bio__text {
+  margin: 0;
+  padding: 0 3% 3%;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 27px;
+}
